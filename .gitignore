@@ -37,8 +37,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Streamlit
-.streamlit/
+# Streamlit - Excluir secrets pero permitir config
+.streamlit/secrets.toml
 
 # Pytest
 .pytest_cache/
