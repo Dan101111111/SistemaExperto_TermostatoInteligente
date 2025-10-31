@@ -4,7 +4,7 @@ Responsable: Igor
 """
 
 import requests
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 
 def obtener_datos():
@@ -29,8 +29,10 @@ def obtener_datos():
     except Exception:
         temperatura = 25.0  # fallback si falla la API
 
-    # Obtener datos temporales
-    ahora = datetime.now()
+    # Obtener datos temporales en zona horaria de Perú (UTC-5)
+    # Perú no usa horario de verano, siempre es UTC-5
+    zona_horaria_peru = timezone(timedelta(hours=-5))
+    ahora = datetime.now(zona_horaria_peru)
     hora = ahora.hour
     dia_semana = ahora.strftime("%A")
 
